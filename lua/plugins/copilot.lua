@@ -4,11 +4,17 @@ return {
   event = "InsertEnter",
   config = function()
     require("copilot").setup({
-      suggestion = { enabled = true, auto_trigger = true },
-      panel = { enabled = true },
-      server_opts_overrides = {
-        model = "gpt-4-turbo", -- Change to "gpt-3.5-turbo" if needed
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        keymap = {
+          accept = "<C-j>", -- Accept suggestion with Ctrl + J
+          next = "<C-k>", -- Navigate to next suggestion
+          prev = "<C-h>", -- Navigate to previous suggestion
+          dismiss = "<C-l>", -- Dismiss suggestion
+        },
       },
+      panel = { enabled = true },
     })
   end,
 }
